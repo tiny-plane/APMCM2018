@@ -26,7 +26,7 @@ load all_job_data.mat
 % set(gca,'xtick',1:mm,'xticklabel',job_list(list_num).Geteducation(job_list(list_num)))
 % title(name);
 % ylabel('Time')
-% xlabel('Education requirements')
+% xlabel('Education requirements'6
 % zlabel('Market Demand')
 
 
@@ -56,6 +56,8 @@ load all_job_data.mat
 
 
 %%%求一下总人数
+
+
 
 total = zeros(1,36);
 for k = 1:36

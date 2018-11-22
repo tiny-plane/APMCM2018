@@ -4,6 +4,7 @@ classdef job<handle
         mouth;     %row
         education;      %column
         data = 0;
+        data3 = 0;
     end
     methods
         function obj = job(name)

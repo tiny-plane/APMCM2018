@@ -49,6 +49,10 @@ for list_num = 1:size(job_list,2)
 job_list(list_num).data(end,:) = [];
 job_list(list_num).data(:,end) = [];
 end
+for list_num = 1:size(job_list,2)
+    temp = job_list(list_num).data;
+    job_list(list_num).data3 = [sum(temp(:,2:5),2),sum(temp(:,6:6),2),sum(temp(:,7:9),2)];
+end
 save all_job_data.mat
 
 
