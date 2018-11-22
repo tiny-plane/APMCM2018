@@ -32,8 +32,39 @@ classdef job<handle
             job.data = temp;
         end
         function add_data(job,mouth,education,data)
-    job.data = data;
+            n = 0;
+            for i = 1 : size(job.mouth,2)
+                if strcmp(job.mouth{i},mouth)
+                    n = i;
+                    break;
+                end
+            end
+            if n == 0
+                job = add_mouth(job,mouth);
+                for i = 1 : size(job.mouth,2)
+                    if strcmp(job.mouth{i},mouth)
+                        n = i;
+                        break;
+                    end
+                end
+            end
+            m = 0;
+            for j =1 : size(job.education,2)
+                if strcmp(job.edcation{j},edcation)
+                    m = j;
+                    break;
+                end
+            end
+            if m == 0
+                job = add_education(job,education);
+                for j =1 : size(job.education,2)
+                    if strcmp(job.edcation{j},edcation)
+                        m = j;
+                        break;
+                    end
+                end
+            end
+            job.data(n,m) = data;
         end
     end
 end
-        
