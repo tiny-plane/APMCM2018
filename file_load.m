@@ -2,7 +2,7 @@ clear
 job_list = job('Computer software ');
 file_head  = 'D:\MATLAB_GIT\APMCM2018';
 mouth = [{'01'},{'02'},{'03'},{'04'},{'05'},{'06'},{'07'},{'08'},{'09'},{'10'},{'11'},{'12'}];
-for year = 2015:2015
+for year = 2015:2018
     fold_head = num2str(year);
     for k = 1:12
         file_name = strcat(file_head,'\',fold_head,'\',mouth{k},'.xlsx');
@@ -40,7 +40,7 @@ for list_num = 1:size(job_list,2)
 job_list(list_num).data(end,:) = [];
 job_list(list_num).data(:,end) = [];
 end
-
+save all_job_data.mat
 
 
 
