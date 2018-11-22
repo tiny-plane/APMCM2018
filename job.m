@@ -72,7 +72,7 @@ classdef job<handle
         function mouth = Getmouth(job)
             mouth = job.mouth;
         end
-        function education = Geteduation(job)
+        function education = Geteducation(job)
             education = job.education;
         end
         function data = Getdata(job)
