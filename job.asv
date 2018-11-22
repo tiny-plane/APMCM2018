@@ -11,9 +11,9 @@ classdef job<handle
         end
     end
     methods (Static)
-        function dup = find_dup(job,name)
+                function dup = find_dup(job,name)
             dup = false;
-            if strcmp(job.name,name)
+            if strcmp(job.name,name(1:5))
                 dup = true;
             end
         end
@@ -40,25 +40,43 @@ classdef job<handle
                 end
             end
             if n == 0
-                job = add_mouth(job,mouth);
+                job.add_mouth(job,mouth);
                 for i = 1 : size(job.mouth,2)
-                if strcmp(job.mouth{i},mouth)
-                    n = i;
-                    break;
-                end
+                    if strcmp(job.mouth{i},mouth)
+                        n = i;
+                        break;
+                    end
                 end
             end
             m = 0;
             for j =1 : size(job.education,2)
-                if strcmp(job.edcation{j},edcation)
+                if strcmp(job.education{j},education)
                     m = j;
                     break;
                 end
             end
             if m == 0
-                job = add_
-    job.data = data;
+                job.add_education(job,education);
+                for j =1 : size(job.education,2)
+                    if strcmp(job.education{j},education)
+                        m = j;
+                        break;
+                    end
+                end
+            end
+            job.data(n,m) = data;
+        end
+        function name = Getname(job)
+            name = job.name;
+        end
+        function mouth = Getmouth(job)
+            mouth = job.mouth;
+        end
+        function education = Geteduation(job)
+            education = job.education;
+        end
+        function data = Getdata(job)
+            data = job.data;
         end
     end
 end
-        

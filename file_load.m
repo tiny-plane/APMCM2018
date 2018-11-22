@@ -16,6 +16,9 @@ for year = 2015:2018
         
         for job_num = 4 : size(temp,1)-3        %按照职业逐个
             new_job_name = temp{job_num,2};      %职业名称取出来准备对照
+            if isnan(new_job_name)
+                continue;
+            end
             dup = 0;
             for list_num = 1:size(job_list,2)    %与列表进行对照
                 result = job_list(1).find_dup(job_list(list_num),new_job_name);

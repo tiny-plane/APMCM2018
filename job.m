@@ -11,9 +11,6 @@ classdef job<handle
         end
     end
     methods (Static)
-        function name = getname(job)
-            name = job.name;
-        end
         function dup = find_dup(job,name)
             dup = false;
             if strcmp(job.name,name)
@@ -68,6 +65,18 @@ classdef job<handle
                 end
             end
             job.data(n,m) = data;
+        end
+        function name = Getname(job)
+            name = job.name;
+        end
+        function mouth = Getmouth(job)
+            mouth = job.mouth;
+        end
+        function education = Geteduation(job)
+            education = job.education;
+        end
+        function data = Getdata(job)
+            data = job.data;
         end
     end
 end
