@@ -11,10 +11,10 @@ for year = 2015:2018
         if file == -1
             continue
         end  %没有这个月份就下一个
-        
+        fclose(file);
         [num,txt,temp] = xlsread(file_name);  %读取一个数据
         
-        for job_num = 4 : size(temp,1)-3        %按照职业逐个
+        for job_num = 4 : size(temp,1)-3         %按照职业逐个
             new_job_name = temp{job_num,2};      %职业名称取出来准备对照
             if isnan(new_job_name)
                 continue;
@@ -27,14 +27,20 @@ for year = 2015:2018
                     break
                 end
             end
-            if dup == 0
+            
+            if dup == 0    %没重复的话，就要新建一个工作
                 job_list = [job_list,job(new_job_name)];
                 list_num = list_num + 1;
             end
-            for i = 4:12
+            
+                education = 'Total';   %总数那一栏位置和别的不一样，单独处理一下
+                mouth_list = [fold_head,mouth{k}];
+                job_list(1).add_data(job_list(list_num),mouth_list,education,temp{job_num,3})
+                
+            for i = 4:12   %其他所有职业水平的，求一下
                 education = temp{3,i};
                 mouth_list = [fold_head,mouth{k}];
-                job_list(1).add_data(job_list(list_num),mouth_list,education,temp{4,i})
+                job_list(1).add_data(job_list(list_num),mouth_list,education,temp{job_num,i})
             end
         end
     end
